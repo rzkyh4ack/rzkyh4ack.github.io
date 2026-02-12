@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>Reynand Teknik - Jasa Pasang CCTV Profesional</title>
+    
+    <!-- Font Awesome 6 (Gambar kamera bebas copyright) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+            color: #333;
+        }
+
+        /* Main container */
+        .website-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: #f0f4f8;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            position: relative;
+            border-radius: 30px 30px 0 0;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #ffd166;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 45px;
+            color: #073b4c;
+            animation: spin-slow 8s infinite linear;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .reynand {
+            color: #118ab2;
+            text-shadow: 2px 2px 0 #ffd166;
+        }
+
+        .teknik {
+            color: #06d6a0;
+            background: #073b4c;
+            padding: 5px 12px;
+            border-radius: 40px;
+            margin-left: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #073b4c;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a i {
+            font-size: 20px;
+        }
+
+        .nav-links a:hover {
+            background: #ffd166;
+            color: #073b4c;
+            transform: translateY(-3px);
+        }
+
+        /* Pages */
+        .page {
+            display: none;
+            min-height: 80vh;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 40px;
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255,209,102,0.2) 0%, rgba(255,209,102,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 52px;
+            font-weight: 800;
+            color: #073b4c;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #118ab2;
+            background: #ffd166;
+            padding: 5px 15px;
+            border-radius: 40px;
+            display: inline-block;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            color: #64748b;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        /* Hero Camera Animation - Gambar CCTV Bebas Copyright */
+        .hero-cameras {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .camera-card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.5s;
+            border: 3px solid transparent;
+            position: relative;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .camera-card:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .camera-card:hover {
+            border-color: #ffd166;
+            transform: scale(1.05);
+        }
+
+        /* Gambar CCTV menggunakan Font Awesome dan SVG Ikon */
+        .camera-icon {
+            font-size: 90px;
+            color: #118ab2;
+            margin-bottom: 15px;
+            filter: drop-shadow(5px 10px 10px rgba(0,0,0,0.1));
+        }
+
+        .camera-icon-secondary {
+            font-size: 60px;
+            color: #06d6a0;
+        }
+
+        .camera-label {
+            font-weight: 700;
+            color: #073b4c;
+            background: #ffd166;
+            padding: 8px 15px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Floating animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        /* Package Cards */
+        .packages-section {
+            padding: 80px 40px;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            color: #073b4c;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-title h2 i {
+            color: #ffd166;
+            margin-right: 10px;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 40px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: all 0.4s;
+            border: 2px solid #e2e8f0;
+            position: relative;
+        }
+
+        .package-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 30px 50px rgba(17,138,178,0.2);
+            border-color: #118ab2;
+        }
+
+        .package-header {
+            background: linear-gradient(145deg, #118ab2, #073b4c);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-header i {
+            font-size: 70px;
+            margin-bottom: 15px;
+            color: #ffd166;
+            animation: spin-slow 12s infinite linear;
+        }
+
+        .package-header h3 {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .price {
+            font-size: 36px;
+            font-weight: 800;
+            margin-top: 15px;
+            background: #ffd166;
+            color: #073b4c;
+            padding: 5px 20px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        .package-body {
+            padding: 35px;
+        }
+
+        .spec-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .spec-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+        }
+
+        .spec-list i {
+            color: #06d6a0;
+            font-size: 20px;
+            width: 25px;
+            text-align: center;
+        }
+
+        .btn-detail {
+            display: inline-block;
+            width: 100%;
+            background: #118ab2;
+            color: white;
+            padding: 18px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-detail:hover {
+            background: #06d6a0;
+            color: #073b4c;
+            transform: scale(1.02);
+        }
+
+        /* Detail Page Styles */
+        .detail-page {
+            padding: 60px 40px;
+            background: white;
+        }
+
+        .back-btn {
+            background: #ffd166;
+            color: #073b4c;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #073b4c;
+            color: #ffd166;
+        }
+
+        .detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .detail-specs {
+            background: #f8fafc;
+            padding: 40px;
+            border-radius: 40px;
+        }
+
+        .detail-specs h2 {
+            font-size: 36px;
+            color: #073b4c;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .spec-table tr {
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .spec-table td {
+            padding: 18px 10px;
+            font-size: 17px;
+        }
+
+        .spec-table td:first-child {
+            font-weight: 700;
+            color: #118ab2;
+        }
+
+        .detail-gambar {
+            background: linear-gradient(145deg, #fef9e7, #fef3c7);
+            border-radius: 40px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Gambar CCTV di halaman detail - Animasi lucu */
+        .cctv-big {
+            font-size: 200px;
+            color: #118ab2;
+            animation: float 5s ease-in-out infinite, pulse 3s infinite;
+            filter: drop-shadow(10px 20px 20px rgba(0,0,0,0.15));
+            margin-bottom: 20px;
+        }
+
+        .cctv-big-secondary {
+            font-size: 150px;
+            color: #06d6a0;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        .cctv-group {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* WhatsApp Section */
+        .wa-section {
+            background: linear-gradient(145deg, #25D366, #128C7E);
+            padding: 100px 40px;
+            text-align: center;
+            color: white;
+            border-radius: 60px 60px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wa-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .wa-icon {
+            font-size: 100px;
+            color: white;
+            animation: pulse 2s infinite;
+            margin-bottom: 30px;
+        }
+
+        .wa-section h2 {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .wa-btn {
+            background: white;
+            color: #075E54;
+            font-size: 28px;
+            font-weight: 700;
+            padding: 25px 60px;
+            border-radius: 80px;
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            text-decoration: none;
+            margin-top: 40px;
+            transition: all 0.3s;
+            border: 5px solid #ffd166;
+        }
+
+        .wa-btn:hover {
+            transform: scale(1.1);
+            background: #ffd166;
+            color: #073b4c;
+            border-color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #073b4c;
+            color: white;
+            padding: 60px 40px 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: #ffd166;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #cbd5e1;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .social-icons a {
+            background: rgba(255,255,255,0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #ffd166;
+            color: #073b4c;
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .hero-content, .detail-container {
+                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero-text h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="website-container">
+        <!-- Navigation -->
+        <nav>
+            <div class="logo">
+                <i class="fas fa-camera-retro logo-icon"></i>
+                <div class="logo-text">
+                    <span class="reynand">Reynand</span>
+                    <span class="teknik">Teknik</span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#" data-page="home"><i class="fas fa-home"></i> Home</a>
+                <a href="#" data-page="packages"><i class="fas fa-box"></i> Paket</a>
+                <a href="#" data-page="whatsapp-page"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </nav>
+
+        <!-- ============ HALAMAN HOME ============ -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>
+                            Jasa Pasang CCTV 
+                            <span class="highlight">Profesional</span><br>
+                            Reynand Teknik
+                        </h1>
+                        <p>Solusi keamanan 360° dengan teknologi terkini. Gratis konsultasi + survey lokasi. Aman, terpercaya, bergaransi!</p>
+                        <div style="display: flex; gap: 20px;">
+                            <a href="#" data-page="packages" class="btn-detail" style="width: auto; padding: 18px 40px; background: #ffd166; color: #073b4c;">
+                                <i class="fas fa-camera"></i> Lihat Paket
+                            </a>
+                            <a href="#" data-page="whatsapp-page" class="btn-detail" style="width: auto; padding: 18px 40px; background: #25D366; color: white;">
+                                <i class="fab fa-whatsapp"></i> Konsultasi
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- GAMBAR CCTV BEBAS COPYRIGHT (Font Awesome) -->
+                    <div class="hero-cameras">
+                        <div class="camera-card">
+                            <i class="fas fa-video camera-icon"></i>
+                            <i class="fas fa-shield-alt camera-icon-secondary" style="display: block; margin-top: -20px;"></i>
+                            <span class="camera-label">4 Channel</span>
+                        </div>
+                        <div class="camera-card">
+                            <i class="fas fa-camera-retro camera-icon" style="color: #06d6a0;"></i>
+                            <i class="fas fa-wifi camera-icon-secondary" style="display: block;"></i>
+                            <span class="camera-label">8 Channel</span>
+                        </div>
+                        <div class="camera-card">
+                            <i class="fas fa-eye camera-icon" style="color: #ffd166;"></i>
+                            <i class="fas fa-microchip camera-icon-secondary"></i>
+                            <span class="camera-label">16 Channel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PREVIEW PAKET -->
+            <div class="packages-section">
+                <div class="section-title">
+                    <h2><i class="fas fa-crown"></i> Paket Unggulan Kami</h2>
+                    <p style="font-size: 20px; color: #64748b;">Pilih paket CCTV sesuai kebutuhan Anda</p>
+                </div>
+                
+                <div class="package-grid">
+                    <!-- Paket 4 Channel -->
+                    <div class="package-card">
+                        <div class="package-header">
+                            <i class="fas fa-video"></i>
+                            <h3>CCTV 4 Channel</h3>
+                            <div class="price">Rp 3,5 Jt</div>
+                        </div>
+                        <div class="package-body">
+                            <ul class="spec-list">
+                                <li><i class="fas fa-check-circle"></i> 4 Kamera HD 1080p</li>
+                                <li><i class="fas fa-check-circle"></i> DVR 4CH H.265+</li>
+                                <li><i class="fas fa-check-circle"></i> HDD 500GB</li>
+                                <li><i class="fas fa-check-circle"></i> Kabel 20m/channel</li>
+                                <li><i class="fas fa-check-circle"></i> Pasang + Setting</li>
+                            </ul>
+                            <button class="btn-detail" data-page="detail4">
+                                <i class="fas fa-info-circle"></i> Lihat Spesifikasi
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Paket 8 Channel -->
+                    <div class="package-card">
+                        <div class="package-header" style="background: linear-gradient(145deg, #06d6a0, #0a5c4b);">
+                            <i class="fas fa-camera-retro"></i>
+                            <h3>CCTV 8 Channel</h3>
+                            <div class="price">Rp 6,5 Jt</div>
+                        </div>
+                        <div class="package-body">
+                            <ul class="spec-list">
+                                <li><i class="fas fa-check-circle"></i> 8 Kamera Full HD 2MP</li>
+                                <li><i class="fas fa-check-circle"></i> DVR 8CH H.265+</li>
+                                <li><i class="fas fa-check-circle"></i> HDD 1TB</li>
+                                <li><i class="fas fa-check-circle"></i> Kabel 30m/channel</li>
+                                <li><i class="fas fa-check-circle"></i> Remote Monitoring</li>
+                            </ul>
+                            <button class="btn-detail" data-page="detail8">
+                                <i class="fas fa-info-circle"></i> Lihat Spesifikasi
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Paket 16 Channel -->
+                    <div class="package-card">
+                        <div class="package-header" style="background: linear-gradient(145deg, #ffd166, #b38b40);">
+                            <i class="fas fa-eye"></i>
+                            <h3>CCTV 16 Channel</h3>
+                            <div class="price">Rp 12 Jt</div>
+                        </div>
+                        <div class="package-body">
+                            <ul class="spec-list">
+                                <li><i class="fas fa-check-circle"></i> 16 Kamera 4MP Ultra HD</li>
+                                <li><i class="fas fa-check-circle"></i> DVR 16CH H.265 Pro</li>
+                                <li><i class="fas fa-check-circle"></i> HDD 2TB</li>
+                                <li><i class="fas fa-check-circle"></i> Kabel 50m/channel</li>
+                                <li><i class="fas fa-check-circle"></i> Aplikasi + notifikasi</li>
+                            </ul>
+                            <button class="btn-detail" data-page="detail16">
+                                <i class="fas fa-info-circle"></i> Lihat Spesifikasi
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ HALAMAN DETAIL 4 CHANNEL ============ -->
+        <section id="detail4" class="page detail-page">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <button class="back-btn" data-page="packages">
+                    <i class="fas fa-arrow-left"></i> Kembali
+                </button>
+                
+                <div class="detail-container">
+                    <div class="detail-specs">
+                        <h2>
+                            <i class="fas fa-video" style="color: #118ab2;"></i> 
+                            CCTV 4 Channel
+                        </h2>
+                        <table class="spec-table">
+                            <tr><td>Model Kamera</td><td>Turret Dome 1080p</td></tr>
+                            <tr><td>Jumlah Kamera</td><td>4 unit</td></tr>
+                            <tr><td>Resolusi</td><td>1920x1080 (Full HD)</td></tr>
+                            <tr><td>Night Vision</td><td>20 meter IR</td></tr>
+                            <tr><td>DVR</td><td>4CH, H.265+, HDMI/VGA</td></tr>
+                            <tr><td>Penyimpanan</td><td>HDD 500GB (rekam 7-14 hari)</td></tr>
+                            <tr><td>Akses Jarak Jauh</td><td>iOS, Android, PC</td></tr>
+                            <tr><td>Garansi</td><td>1 Tahun</td></tr>
+                            <tr><td>Instalasi</td><td>Gratis + Kabel 20m per titik</td></tr>
+                        </table>
+                    </div>
+                    
+                    <!-- Gambar CCTV Bebas Copyright dengan Animasi Lucu -->
+                    <div class="detail-gambar">
+                        <div class="cctv-group">
+                            <i class="fas fa-video cctv-big"></i>
+                            <i class="fas fa-camera-retro cctv-big-secondary"></i>
+                        </div>
+                        <div style="margin-top: 30px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                            <span style="background: #118ab2; color: white; padding: 12px 25px; border-radius: 40px;">
+                                <i class="fas fa-check"></i> 4 Kamera
+                            </span>
+                            <span style="background: #ffd166; color: #073b4c; padding: 12px 25px; border-radius: 40px;">
+                                <i class="fas fa-wifi"></i> Remote Access
+                            </span>
+                        </div>
+                        <p style="margin-top: 30px; font-size: 20px; font-weight: 700; color: #073b4c;">
+                            ⚡ Cocok untuk rumah & toko kecil
+                        </p>
+                        <button class="btn-detail" data-page="whatsapp-page" style="margin-top: 30px; background: #25D366; max-width: 300px;">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ HALAMAN DETAIL 8 CHANNEL ============ -->
+        <section id="detail8" class="page detail-page">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <button class="back-btn" data-page="packages">
+                    <i class="fas fa-arrow-left"></i> Kembali
+                </button>
+                
+                <div class="detail-container">
+                    <div class="detail-specs">
+                        <h2>
+                            <i class="fas fa-camera-retro" style="color: #06d6a0;"></i> 
+                            CCTV 8 Channel
+                        </h2>
+                        <table class="spec-table">
+                            <tr><td>Model Kamera</td><td>Bullet 2MP IR</td></tr>
+                            <tr><td>Jumlah Kamera</td><td>8 unit</td></tr>
+                            <tr><td>Resolusi</td><td>1920x1080 (2MP)</td></tr>
+                            <tr><td>Night Vision</td><td>30 meter IR</td></tr>
+                            <tr><td>DVR</td><td>8CH, H.265+, 2 SATA</td></tr>
+                            <tr><td>Penyimpanan</td><td>HDD 1TB (rekam 14-21 hari)</td></tr>
+                            <tr><td>Fitur</td><td>Motion Detection, Email Alert</td></tr>
+                            <tr><td>Garansi</td><td>2 Tahun</td></tr>
+                            <tr><td>Instalasi</td><td>Gratis + Kabel 30m per titik</td></tr>
+                        </table>
+                    </div>
+                    
+                    <!-- Gambar CCTV Bebas Copyright -->
+                    <div class="detail-gambar">
+                        <div class="cctv-group">
+                            <i class="fas fa-camera cctv-big" style="color: #06d6a0;"></i>
+                            <i class="fas fa-microchip cctv-big-secondary" style="color: #073b4c;"></i>
+                        </div>
+                        <div style="margin-top: 30px;">
+                            <span style="background: #06d6a0; color: white; padding: 12px 25px; border-radius: 40px;">
+                                <i class="fas fa-shield-alt"></i> 8 Kamera + 1TB
+                            </span>
+                        </div>
+                        <p style="margin-top: 30px; font-size: 20px; font-weight: 700; color: #073b4c;">
+                            🏢 Ideal untuk kantor, ruko, mini market
+                        </p>
+                        <button class="btn-detail" data-page="whatsapp-page" style="margin-top: 30px; background: #25D366;">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ HALAMAN DETAIL 16 CHANNEL ============ -->
+        <section id="detail16" class="page detail-page">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <button class="back-btn" data-page="packages">
+                    <i class="fas fa-arrow-left"></i> Kembali
+                </button>
+                
+                <div class="detail-container">
+                    <div class="detail-specs">
+                        <h2>
+                            <i class="fas fa-eye" style="color: #ffd166;"></i> 
+                            CCTV 16 Channel
+                        </h2>
+                        <table class="spec-table">
+                            <tr><td>Model Kamera</td><td>IP66 Outdoor 4MP</td></tr>
+                            <tr><td>Jumlah Kamera</td><td>16 unit</td></tr>
+                            <tr><td>Resolusi</td><td>2560x1440 (4MP)</td></tr>
+                            <tr><td>Night Vision</td><td>50 meter IR</td></tr>
+                            <tr><td>DVR</td><td>16CH, H.265 Pro, AI</td></tr>
+                            <tr><td>Penyimpanan</td><td>HDD 2TB (rekam >30 hari)</td></tr>
+                            <tr><td>Fitur</td><td>AI Detection, Face Recognition</td></tr>
+                            <tr><td>Garansi</td><td>3 Tahun</td></tr>
+                            <tr><td>Instalasi</td><td>Gratis + Kabel 50m per titik</td></tr>
+                        </table>
+                    </div>
+                    
+                    <!-- Gambar CCTV Bebas Copyright -->
+                    <div class="detail-gambar">
+                        <div class="cctv-group">
+                            <i class="fas fa-camera-retro cctv-big" style="color: #ffd166;"></i>
+                            <i class="fas fa-robot cctv-big-secondary"></i>
+                        </div>
+                        <div style="margin-top: 30px;">
+                            <span style="background: #ffd166; color: #073b4c; padding: 12px 25px; border-radius: 40px;">
+                                <i class="fas fa-crown"></i> Premium 16 Camera
+                            </span>
+                        </div>
+                        <p style="margin-top: 30px; font-size: 20px; font-weight: 700; color: #073b4c;">
+                            🏭 Solusi untuk pabrik, gudang, hotel
+                        </p>
+                        <button class="btn-detail" data-page="whatsapp-page" style="margin-top: 30px; background: #25D366;">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ HALAMAN PAKET (RINGKASAN) ============ -->
+        <section id="packages" class="page packages-section">
+            <div class="section-title">
+                <h2><i class="fas fa-boxes"></i> Semua Paket CCTV</h2>
+                <p style="font-size: 20px;">Pilih sesuai kebutuhan dan budget Anda</p>
+            </div>
+            <div class="package-grid" style="padding: 0 40px;">
+                <!-- PAKET 4,8,16 di-copy agar konsisten, bisa juga panggil dari yang atas, 
+                tapi kita buat ulang untuk page packages -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <i class="fas fa-video"></i>
+                        <h3>CCTV 4 Channel</h3>
+                        <div class="price">Rp 3,5 Jt</div>
+                    </div>
+                    <div class="package-body">
+                        <ul class="spec-list">
+                            <li><i class="fas fa-check-circle"></i> 4 Kamera HD 1080p</li>
+                            <li><i class="fas fa-check-circle"></i> DVR 4CH H.265+</li>
+                            <li><i class="fas fa-check-circle"></i> HDD 500GB</li>
+                        </ul>
+                        <button class="btn-detail" data-page="detail4">Lihat Spesifikasi</button>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <div class="package-header" style="background: linear-gradient(145deg, #06d6a0, #0a5c4b);">
+                        <i class="fas fa-camera-retro"></i>
+                        <h3>CCTV 8 Channel</h3>
+                        <div class="price">Rp 6,5 Jt</div>
+                    </div>
+                    <div class="package-body">
+                        <ul class="spec-list">
+                            <li><i class="fas fa-check-circle"></i> 8 Kamera Full HD 2MP</li>
+                            <li><i class="fas fa-check-circle"></i> DVR 8CH H.265+</li>
+                            <li><i class="fas fa-check-circle"></i> HDD 1TB</li>
+                        </ul>
+                        <button class="btn-detail" data-page="detail8">Lihat Spesifikasi</button>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <div class="package-header" style="background: linear-gradient(145deg, #ffd166, #b38b40);">
+                        <i class="fas fa-eye"></i>
+                        <h3>CCTV 16 Channel</h3>
+                        <div class="price">Rp 12 Jt</div>
+                    </div>
+                    <div class="package-body">
+                        <ul class="spec-list">
+                            <li><i class="fas fa-check-circle"></i> 16 Kamera 4MP Ultra HD</li>
+                            <li><i class="fas fa-check-circle"></i> DVR 16CH H.265 Pro</li>
+                            <li><i class="fas fa-check-circle"></i> HDD 2TB</li>
+                        </ul>
+                        <button class="btn-detail" data-page="detail16">Lihat Spesifikasi</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ HALAMAN WHATSAPP ============ -->
+        <section id="whatsapp-page" class="page">
+            <div class="wa-section">
+                <div class="wa-content">
+                    <i class="fab fa-whatsapp wa-icon"></i>
+                    <h2>Hubungi Reynand Teknik</h2>
+                    <p style="font-size: 24px; max-width: 700px; margin: 0 auto;">
+                        Konsultasi gratis! Tim kami siap membantu Anda memilih sistem CCTV yang tepat.
+                    </p>
+                    <a href="https://wa.me/6289507906660?text=Halo%20Reynand%20Teknik!%20Saya%20ingin%20pasang%20CCTV.%20Mohon%20informasinya." 
+                       class="wa-btn" target="_blank">
+                        <i class="fab fa-whatsapp" style="font-size: 50px;"></i> 
+                        +62 895-0790-6660
+                    </a>
+                    <p style="margin-top: 40px; font-size: 20px;">
+                        ⚡ Respon cepat, survey gratis, garansi service
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Alamat & Kontak -->
+            <div style="background: white; padding: 60px 40px; text-align: center;">
+                <h3 style="font-size: 32px; color: #073b4c; margin-bottom: 30px;">
+                    <i class="fas fa-map-marker-alt" style="color: #ffd166;"></i> 
+                    Kunjungi Kantor Kami
+                </h3>
+                <p style="font-size: 20px; color: #64748b; margin-bottom: 20px;">
+                    Jl. Teknologi CCTV No. 88, Jakarta Selatan
+                </p>
+                <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px;">
+                    <div><i class="fas fa-phone-alt" style="color: #118ab2;"></i> 021-555-666</div>
+                    <div><i class="fas fa-envelope" style="color: #06d6a0;"></i> info@reynandteknik.com</div>
+                    <div><i class="fas fa-clock" style="color: #ffd166;"></i> Buka: Senin-Minggu 08.00-20.00</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Reynand Teknik</h3>
+                    <p>Spesialis pemasangan CCTV sejak 2015. Lebih dari 5000+ pelanggan puas. Bergaransi resmi.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Paket CCTV</h3>
+                    <a href="#" data-page="detail4">CCTV 4 Channel</a>
+                    <a href="#" data-page="detail8">CCTV 8 Channel</a>
+                    <a href="#" data-page="detail16">CCTV 16 Channel</a>
+                    <a href="#" data-page="packages">Semua Paket</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Layanan</h3>
+                    <p>Instalasi CCTV</p>
+                    <p>Maintenance</p>
+                    <p>Upgrade Sistem</p>
+                    <p>Konsultasi Keamanan</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontak</h3>
+                    <p><i class="fas fa-phone"></i> +62 895-0790-6660</p>
+                    <p><i class="fas fa-envelope"></i> support@reynandteknik.id</p>
+                    <p><i class="fas fa-map-marker"></i> Jakarta, Indonesia</p>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 30px; border-top: 1px solid #334756; color: #94a3b8;">
+                © 2023 Reynand Teknik. Hak Cipta Dilindungi. Gambar ikon dari Font Awesome (bebas copyright).
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // SISTEM NAVIGASI SINGLE PAGE APPLICATION
+        document.addEventListener('DOMContentLoaded', function() {
+            const pages = document.querySelectorAll('.page');
+            const navButtons = document.querySelectorAll('[data-page]');
+            
+            function showPage(pageId) {
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                const activePage = document.getElementById(pageId);
+                if (activePage) {
+                    activePage.classList.add('active');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+            
+            navButtons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    if (pageId) {
+                        showPage(pageId);
+                    }
+                });
+            });
+            
+            // Tampilkan home default
+            showPage('home');
+        });
+
+        // ANIMASI TAMBAHAN - Membuat CCTV bergerak lebih lucu
+        setInterval(() => {
+            const icons = document.querySelectorAll('.camera-icon, .cctv-big, .cctv-big-secondary, .logo-icon');
+            icons.forEach(icon => {
+                icon.style.transform = `rotate(${Math.sin(Date.now() / 500) * 10}deg)`;
+            });
+        }, 100);
+    </script>
+</body>
+</html>
