@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Reynand Teknik - Jasa Pasang CCTV Profesional</title>
     
     <!-- Font Awesome 6 (Gambar kamera bebas copyright) -->
@@ -33,17 +33,18 @@
             box-shadow: 0 0 50px rgba(0,0,0,0.1);
             position: relative;
             border-radius: 30px 30px 0 0;
-            margin-top: 20px;
+            margin-top: 10px;
             overflow: hidden;
+            width: 100%;
         }
 
-        /* Navigation */
+        /* Navigation - Mobile First */
         nav {
             background: white;
-            padding: 20px 40px;
+            padding: 15px 20px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            gap: 15px;
             border-bottom: 3px solid #ffd166;
             position: sticky;
             top: 0;
@@ -51,21 +52,52 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
 
+        @media (min-width: 768px) {
+            nav {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 40px;
+            }
+        }
+
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .logo {
+                justify-content: flex-start;
+            }
         }
 
         .logo-icon {
-            font-size: 45px;
+            font-size: 35px;
             color: #073b4c;
             animation: spin-slow 8s infinite linear;
         }
 
+        @media (min-width: 768px) {
+            .logo-icon {
+                font-size: 45px;
+            }
+        }
+
         .logo-text {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 800;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .logo-text {
+                font-size: 28px;
+            }
         }
 
         .reynand {
@@ -76,31 +108,61 @@
         .teknik {
             color: #06d6a0;
             background: #073b4c;
-            padding: 5px 12px;
+            padding: 5px 10px;
             border-radius: 40px;
             margin-left: 5px;
+            font-size: 18px;
+        }
+
+        @media (min-width: 768px) {
+            .teknik {
+                padding: 5px 12px;
+                font-size: 28px;
+            }
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                gap: 30px;
+            }
         }
 
         .nav-links a {
             text-decoration: none;
             color: #073b4c;
             font-weight: 600;
-            font-size: 18px;
-            padding: 10px 20px;
+            font-size: 14px;
+            padding: 8px 15px;
             border-radius: 50px;
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 5px;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links a {
+                font-size: 18px;
+                padding: 10px 20px;
+                gap: 8px;
+            }
         }
 
         .nav-links a i {
-            font-size: 20px;
+            font-size: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links a i {
+                font-size: 20px;
+            }
         }
 
         .nav-links a:hover {
@@ -119,12 +181,18 @@
             display: block;
         }
 
-        /* Hero Section */
+        /* Hero Section - Mobile First */
         .hero {
-            padding: 60px 40px;
+            padding: 30px 20px;
             background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
             position: relative;
             overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 60px 40px;
+            }
         }
 
         .hero::before {
@@ -132,8 +200,10 @@
             position: absolute;
             top: -50%;
             right: -20%;
-            width: 800px;
-            height: 800px;
+            width: 100%;
+            height: 100%;
+            max-width: 800px;
+            max-height: 800px;
             background: radial-gradient(circle, rgba(255,209,102,0.2) 0%, rgba(255,209,102,0) 70%);
             border-radius: 50%;
             z-index: 0;
@@ -141,59 +211,127 @@
 
         .hero-content {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
             position: relative;
             z-index: 2;
+            gap: 40px;
+        }
+
+        @media (min-width: 992px) {
+            .hero-content {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 0;
+            }
         }
 
         .hero-text {
             flex: 1;
+            text-align: center;
+        }
+
+        @media (min-width: 992px) {
+            .hero-text {
+                text-align: left;
+            }
         }
 
         .hero-text h1 {
-            font-size: 52px;
+            font-size: 32px;
             font-weight: 800;
             color: #073b4c;
             line-height: 1.2;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-text h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hero-text h1 {
+                font-size: 52px;
+            }
         }
 
         .highlight {
             color: #118ab2;
             background: #ffd166;
-            padding: 5px 15px;
+            padding: 5px 10px;
             border-radius: 40px;
             display: inline-block;
         }
 
         .hero-text p {
-            font-size: 20px;
+            font-size: 16px;
             color: #64748b;
-            margin-bottom: 40px;
-            max-width: 600px;
+            margin-bottom: 30px;
+            max-width: 100%;
         }
 
-        /* Hero Camera Animation - Gambar CCTV Bebas Copyright */
+        @media (min-width: 768px) {
+            .hero-text p {
+                font-size: 18px;
+                max-width: 600px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hero-text p {
+                font-size: 20px;
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 992px) {
+            .hero-buttons {
+                justify-content: flex-start;
+            }
+        }
+
+        /* Hero Camera Animation */
         .hero-cameras {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 30px;
+            gap: 15px;
             flex-wrap: wrap;
+        }
+
+        @media (min-width: 768px) {
+            .hero-cameras {
+                gap: 30px;
+            }
         }
 
         .camera-card {
             background: white;
-            padding: 30px 25px;
-            border-radius: 30px;
+            padding: 20px 15px;
+            border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.08);
             text-align: center;
             transition: all 0.5s;
             border: 3px solid transparent;
             position: relative;
             animation: float 4s ease-in-out infinite;
+            width: 120px;
+        }
+
+        @media (min-width: 768px) {
+            .camera-card {
+                padding: 30px 25px;
+                width: auto;
+            }
         }
 
         .camera-card:nth-child(2) {
@@ -205,33 +343,52 @@
             transform: scale(1.05);
         }
 
-        /* Gambar CCTV menggunakan Font Awesome dan SVG Ikon */
         .camera-icon {
-            font-size: 90px;
+            font-size: 50px;
             color: #118ab2;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             filter: drop-shadow(5px 10px 10px rgba(0,0,0,0.1));
         }
 
+        @media (min-width: 768px) {
+            .camera-icon {
+                font-size: 90px;
+            }
+        }
+
         .camera-icon-secondary {
-            font-size: 60px;
+            font-size: 40px;
             color: #06d6a0;
         }
 
+        @media (min-width: 768px) {
+            .camera-icon-secondary {
+                font-size: 60px;
+            }
+        }
+
         .camera-label {
-            font-weight: 700;
+            font-weight: 600;
             color: #073b4c;
             background: #ffd166;
-            padding: 8px 15px;
+            padding: 5px 10px;
             border-radius: 30px;
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .camera-label {
+                font-size: 16px;
+                padding: 8px 15px;
+            }
         }
 
         /* Floating animations */
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
         }
 
         @keyframes spin-slow {
@@ -241,7 +398,7 @@
 
         @keyframes pulse {
             0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 0.8; }
             100% { transform: scale(1); opacity: 1; }
         }
 
@@ -249,39 +406,88 @@
             animation: pulse 2s infinite;
         }
 
-        /* Package Cards */
+        /* Package Cards - Mobile First */
         .packages-section {
-            padding: 80px 40px;
+            padding: 40px 20px;
             background: white;
+        }
+
+        @media (min-width: 768px) {
+            .packages-section {
+                padding: 80px 40px;
+            }
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                margin-bottom: 60px;
+            }
         }
 
         .section-title h2 {
-            font-size: 42px;
+            font-size: 28px;
             color: #073b4c;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
-        .section-title h2 i {
-            color: #ffd166;
-            margin-right: 10px;
+        @media (min-width: 768px) {
+            .section-title h2 {
+                font-size: 36px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .section-title h2 {
+                font-size: 42px;
+            }
+        }
+
+        .section-title p {
+            font-size: 16px;
+            color: #64748b;
+        }
+
+        @media (min-width: 768px) {
+            .section-title p {
+                font-size: 18px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .section-title p {
+                font-size: 20px;
+            }
         }
 
         .package-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: 1fr;
+            gap: 30px;
             margin-top: 30px;
+        }
+
+        @media (min-width: 640px) {
+            .package-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .package-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
+            }
         }
 
         .package-card {
             background: white;
-            border-radius: 40px;
+            border-radius: 30px;
             box-shadow: 0 15px 30px rgba(0,0,0,0.05);
             overflow: hidden;
             transition: all 0.4s;
@@ -289,8 +495,14 @@
             position: relative;
         }
 
+        @media (min-width: 768px) {
+            .package-card {
+                border-radius: 40px;
+            }
+        }
+
         .package-card:hover {
-            transform: translateY(-20px);
+            transform: translateY(-10px);
             box-shadow: 0 30px 50px rgba(17,138,178,0.2);
             border-color: #118ab2;
         }
@@ -298,58 +510,132 @@
         .package-header {
             background: linear-gradient(145deg, #118ab2, #073b4c);
             color: white;
-            padding: 30px;
+            padding: 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
+        @media (min-width: 768px) {
+            .package-header {
+                padding: 30px;
+            }
+        }
+
         .package-header i {
-            font-size: 70px;
-            margin-bottom: 15px;
+            font-size: 50px;
+            margin-bottom: 10px;
             color: #ffd166;
             animation: spin-slow 12s infinite linear;
         }
 
+        @media (min-width: 768px) {
+            .package-header i {
+                font-size: 70px;
+            }
+        }
+
         .package-header h3 {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: 700;
         }
 
+        @media (min-width: 768px) {
+            .package-header h3 {
+                font-size: 28px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .package-header h3 {
+                font-size: 32px;
+            }
+        }
+
         .price {
-            font-size: 36px;
+            font-size: 24px;
             font-weight: 800;
-            margin-top: 15px;
+            margin-top: 10px;
             background: #ffd166;
             color: #073b4c;
-            padding: 5px 20px;
+            padding: 5px 15px;
             border-radius: 50px;
             display: inline-block;
         }
 
+        @media (min-width: 768px) {
+            .price {
+                font-size: 30px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .price {
+                font-size: 36px;
+            }
+        }
+
         .package-body {
-            padding: 35px;
+            padding: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .package-body {
+                padding: 30px 25px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .package-body {
+                padding: 35px;
+            }
         }
 
         .spec-list {
             list-style: none;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .spec-list {
+                margin-bottom: 30px;
+            }
         }
 
         .spec-list li {
-            padding: 12px 0;
+            padding: 8px 0;
             border-bottom: 1px dashed #e2e8f0;
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 16px;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .spec-list li {
+                padding: 10px 0;
+                font-size: 15px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .spec-list li {
+                padding: 12px 0;
+                font-size: 16px;
+            }
         }
 
         .spec-list i {
             color: #06d6a0;
-            font-size: 20px;
-            width: 25px;
+            font-size: 16px;
+            width: 20px;
             text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .spec-list i {
+                font-size: 18px;
+            }
         }
 
         .btn-detail {
@@ -357,18 +643,32 @@
             width: 100%;
             background: #118ab2;
             color: white;
-            padding: 18px;
-            border-radius: 60px;
+            padding: 12px;
+            border-radius: 40px;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
+            font-weight: 600;
+            font-size: 14px;
             border: none;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .btn-detail {
+                padding: 15px;
+                font-size: 16px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .btn-detail {
+                padding: 18px;
+                font-size: 18px;
+            }
         }
 
         .btn-detail:hover {
@@ -377,26 +677,46 @@
             transform: scale(1.02);
         }
 
-        /* Detail Page Styles */
+        /* Detail Page Styles - Mobile First */
         .detail-page {
-            padding: 60px 40px;
+            padding: 30px 20px;
             background: white;
+        }
+
+        @media (min-width: 768px) {
+            .detail-page {
+                padding: 60px 40px;
+            }
         }
 
         .back-btn {
             background: #ffd166;
             color: #073b4c;
             border: none;
-            padding: 15px 30px;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 18px;
+            padding: 12px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 40px;
+            gap: 8px;
+            margin-bottom: 30px;
             transition: all 0.3s;
+        }
+
+        @media (min-width: 768px) {
+            .back-btn {
+                padding: 15px 30px;
+                font-size: 16px;
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .back-btn {
+                font-size: 18px;
+            }
         }
 
         .back-btn:hover {
@@ -405,25 +725,59 @@
         }
 
         .detail-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        @media (min-width: 992px) {
+            .detail-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                align-items: start;
+            }
         }
 
         .detail-specs {
             background: #f8fafc;
-            padding: 40px;
-            border-radius: 40px;
+            padding: 25px;
+            border-radius: 25px;
+        }
+
+        @media (min-width: 768px) {
+            .detail-specs {
+                padding: 30px;
+                border-radius: 30px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .detail-specs {
+                padding: 40px;
+                border-radius: 40px;
+            }
         }
 
         .detail-specs h2 {
-            font-size: 36px;
+            font-size: 24px;
             color: #073b4c;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .detail-specs h2 {
+                font-size: 30px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .detail-specs h2 {
+                font-size: 36px;
+            }
         }
 
         .spec-table {
@@ -436,8 +790,22 @@
         }
 
         .spec-table td {
-            padding: 18px 10px;
-            font-size: 17px;
+            padding: 12px 5px;
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .spec-table td {
+                padding: 15px 8px;
+                font-size: 15px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .spec-table td {
+                padding: 18px 10px;
+                font-size: 17px;
+            }
         }
 
         .spec-table td:first-child {
@@ -447,8 +815,8 @@
 
         .detail-gambar {
             background: linear-gradient(145deg, #fef9e7, #fef3c7);
-            border-radius: 40px;
-            padding: 40px;
+            border-radius: 25px;
+            padding: 30px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -457,37 +825,98 @@
             overflow: hidden;
         }
 
-        /* Gambar CCTV di halaman detail - Animasi lucu */
+        @media (min-width: 768px) {
+            .detail-gambar {
+                border-radius: 35px;
+                padding: 35px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .detail-gambar {
+                border-radius: 40px;
+                padding: 40px;
+            }
+        }
+
         .cctv-big {
-            font-size: 200px;
+            font-size: 120px;
             color: #118ab2;
             animation: float 5s ease-in-out infinite, pulse 3s infinite;
             filter: drop-shadow(10px 20px 20px rgba(0,0,0,0.15));
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .cctv-big {
+                font-size: 150px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .cctv-big {
+                font-size: 200px;
+            }
         }
 
         .cctv-big-secondary {
-            font-size: 150px;
+            font-size: 80px;
             color: #06d6a0;
             animation: float 6s ease-in-out infinite reverse;
         }
 
+        @media (min-width: 768px) {
+            .cctv-big-secondary {
+                font-size: 120px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .cctv-big-secondary {
+                font-size: 150px;
+            }
+        }
+
         .cctv-group {
             display: flex;
-            gap: 30px;
+            gap: 15px;
             flex-wrap: wrap;
             justify-content: center;
         }
 
-        /* WhatsApp Section */
+        @media (min-width: 768px) {
+            .cctv-group {
+                gap: 20px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .cctv-group {
+                gap: 30px;
+            }
+        }
+
+        /* WhatsApp Section - Mobile First */
         .wa-section {
             background: linear-gradient(145deg, #25D366, #128C7E);
-            padding: 100px 40px;
+            padding: 50px 20px;
             text-align: center;
             color: white;
-            border-radius: 60px 60px 0 0;
+            border-radius: 30px 30px 0 0;
             position: relative;
             overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .wa-section {
+                padding: 80px 30px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .wa-section {
+                padding: 100px 40px;
+            }
         }
 
         .wa-content {
@@ -496,85 +925,244 @@
         }
 
         .wa-icon {
-            font-size: 100px;
+            font-size: 70px;
             color: white;
             animation: pulse 2s infinite;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .wa-icon {
+                font-size: 80px;
+                margin-bottom: 25px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .wa-icon {
+                font-size: 100px;
+                margin-bottom: 30px;
+            }
         }
 
         .wa-section h2 {
-            font-size: 52px;
+            font-size: 28px;
             font-weight: 800;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .wa-section h2 {
+                font-size: 40px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .wa-section h2 {
+                font-size: 52px;
+            }
+        }
+
+        .wa-section p {
+            font-size: 16px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .wa-section p {
+                font-size: 20px;
+                max-width: 600px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .wa-section p {
+                font-size: 24px;
+                max-width: 700px;
+            }
         }
 
         .wa-btn {
             background: white;
             color: #075E54;
-            font-size: 28px;
+            font-size: 16px;
             font-weight: 700;
-            padding: 25px 60px;
-            border-radius: 80px;
+            padding: 15px 25px;
+            border-radius: 50px;
             display: inline-flex;
             align-items: center;
-            gap: 20px;
+            gap: 10px;
             text-decoration: none;
-            margin-top: 40px;
+            margin-top: 25px;
             transition: all 0.3s;
-            border: 5px solid #ffd166;
+            border: 3px solid #ffd166;
+        }
+
+        @media (min-width: 768px) {
+            .wa-btn {
+                font-size: 22px;
+                padding: 20px 40px;
+                margin-top: 30px;
+                border-width: 4px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .wa-btn {
+                font-size: 28px;
+                padding: 25px 60px;
+                margin-top: 40px;
+                border-width: 5px;
+            }
+        }
+
+        .wa-btn i {
+            font-size: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .wa-btn i {
+                font-size: 35px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .wa-btn i {
+                font-size: 50px;
+            }
         }
 
         .wa-btn:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
             background: #ffd166;
             color: #073b4c;
             border-color: white;
         }
 
-        /* Footer */
+        /* Footer - Mobile First */
         footer {
             background: #073b4c;
             color: white;
-            padding: 60px 40px 30px;
+            padding: 40px 20px 20px;
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                padding: 50px 30px 25px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            footer {
+                padding: 60px 40px 30px;
+            }
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 640px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 50px;
+                margin-bottom: 50px;
+            }
         }
 
         .footer-col h3 {
-            font-size: 24px;
-            margin-bottom: 25px;
+            font-size: 18px;
+            margin-bottom: 15px;
             color: #ffd166;
+        }
+
+        @media (min-width: 768px) {
+            .footer-col h3 {
+                font-size: 20px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .footer-col h3 {
+                font-size: 24px;
+            }
         }
 
         .footer-col p, .footer-col a {
             color: #cbd5e1;
             text-decoration: none;
             display: block;
-            margin-bottom: 15px;
-            font-size: 16px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-col p, .footer-col a {
+                font-size: 15px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .footer-col p, .footer-col a {
+                font-size: 16px;
+            }
         }
 
         .social-icons {
             display: flex;
-            gap: 20px;
-            margin-top: 25px;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .social-icons {
+                gap: 18px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .social-icons {
+                gap: 20px;
+                margin-top: 25px;
+            }
         }
 
         .social-icons a {
             background: rgba(255,255,255,0.1);
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 18px;
             transition: all 0.3s;
+        }
+
+        @media (min-width: 768px) {
+            .social-icons a {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .social-icons a {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
         }
 
         .social-icons a:hover {
@@ -583,32 +1171,14 @@
             transform: translateY(-5px);
         }
 
-        /* Responsive */
-        @media (max-width: 1000px) {
-            .hero-content, .detail-container {
-                grid-template-columns: 1fr;
-                display: flex;
-                flex-direction: column;
-            }
-            
-            nav {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .hero-text h1 {
-                font-size: 42px;
-            }
+        /* Utility classes */
+        .text-center-mobile {
+            text-align: center;
         }
 
-        @media (max-width: 700px) {
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .package-grid {
-                grid-template-columns: 1fr;
+        @media (min-width: 768px) {
+            .text-center-mobile {
+                text-align: left;
             }
         }
     </style>
@@ -627,7 +1197,7 @@
             <div class="nav-links">
                 <a href="#" data-page="home"><i class="fas fa-home"></i> Home</a>
                 <a href="#" data-page="packages"><i class="fas fa-box"></i> Paket</a>
-                <a href="#" data-page="whatsapp-page"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="#" data-page="whatsapp-page"><i class="fab fa-whatsapp"></i> WA</a>
             </div>
         </nav>
 
@@ -641,12 +1211,12 @@
                             <span class="highlight">Profesional</span><br>
                             Reynand Teknik
                         </h1>
-                        <p>Solusi keamanan 360° dengan teknologi terkini. Gratis konsultasi + survey lokasi. Aman, terpercaya, bergaransi!</p>
-                        <div style="display: flex; gap: 20px;">
-                            <a href="#" data-page="packages" class="btn-detail" style="width: auto; padding: 18px 40px; background: #ffd166; color: #073b4c;">
+                        <p>Solusi keamanan 360° dengan teknologi terkini. Gratis konsultasi + survey lokasi.</p>
+                        <div class="hero-buttons">
+                            <a href="#" data-page="packages" class="btn-detail" style="width: auto; padding: 12px 20px; background: #ffd166; color: #073b4c;">
                                 <i class="fas fa-camera"></i> Lihat Paket
                             </a>
-                            <a href="#" data-page="whatsapp-page" class="btn-detail" style="width: auto; padding: 18px 40px; background: #25D366; color: white;">
+                            <a href="#" data-page="whatsapp-page" class="btn-detail" style="width: auto; padding: 12px 20px; background: #25D366; color: white;">
                                 <i class="fab fa-whatsapp"></i> Konsultasi
                             </a>
                         </div>
@@ -656,7 +1226,7 @@
                     <div class="hero-cameras">
                         <div class="camera-card">
                             <i class="fas fa-video camera-icon"></i>
-                            <i class="fas fa-shield-alt camera-icon-secondary" style="display: block; margin-top: -20px;"></i>
+                            <i class="fas fa-shield-alt camera-icon-secondary" style="display: block; margin-top: -10px;"></i>
                             <span class="camera-label">4 Channel</span>
                         </div>
                         <div class="camera-card">
@@ -677,7 +1247,7 @@
             <div class="packages-section">
                 <div class="section-title">
                     <h2><i class="fas fa-crown"></i> Paket Unggulan Kami</h2>
-                    <p style="font-size: 20px; color: #64748b;">Pilih paket CCTV sesuai kebutuhan Anda</p>
+                    <p>Pilih paket CCTV sesuai kebutuhan Anda</p>
                 </div>
                 
                 <div class="package-grid">
@@ -779,18 +1349,18 @@
                             <i class="fas fa-video cctv-big"></i>
                             <i class="fas fa-camera-retro cctv-big-secondary"></i>
                         </div>
-                        <div style="margin-top: 30px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-                            <span style="background: #118ab2; color: white; padding: 12px 25px; border-radius: 40px;">
+                        <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                            <span style="background: #118ab2; color: white; padding: 8px 15px; border-radius: 30px; font-size: 12px;">
                                 <i class="fas fa-check"></i> 4 Kamera
                             </span>
-                            <span style="background: #ffd166; color: #073b4c; padding: 12px 25px; border-radius: 40px;">
+                            <span style="background: #ffd166; color: #073b4c; padding: 8px 15px; border-radius: 30px; font-size: 12px;">
                                 <i class="fas fa-wifi"></i> Remote Access
                             </span>
                         </div>
-                        <p style="margin-top: 30px; font-size: 20px; font-weight: 700; color: #073b4c;">
+                        <p style="margin-top: 20px; font-size: 16px; font-weight: 700; color: #073b4c;">
                             ⚡ Cocok untuk rumah & toko kecil
                         </p>
-                        <button class="btn-detail" data-page="whatsapp-page" style="margin-top: 30px; background: #25D366; max-width: 300px;">
+                        <button class="btn-detail" data-page="whatsapp-page" style="margin-top: 20px; background: #25D366; max-width: 250px;">
                             <i class="fab fa-whatsapp"></i> Pesan Sekarang
                         </button>
                     </div>
@@ -830,15 +1400,15 @@
                             <i class="fas fa-camera cctv-big" style="color: #06d6a0;"></i>
                             <i class="fas fa-microchip cctv-big-secondary" style="color: #073b4c;"></i>
                         </div>
-                        <div style="margin-top: 30px;">
-                            <span style="background: #06d6a0; color: white; padding: 12px 25px; border-radius: 40px;">
+                        <div style="margin-top: 20px;">
+                            <span style="background: #06d6a0; color: white; padding: 8px 15px; border-radius: 30px; font-size: 12px;">
                                 <i class="fas fa-shield-alt"></i> 8 Kamera + 1TB
                             </span>
                         </div>
-                        <p style="margin-top: 30px; font-size: 20px; font-weight: 700; color: #073b4c;">
+                        <p style="margin-top: 20px; font-size: 16px; font-weight: 700; color: #073b4c;">
                             🏢 Ideal untuk kantor, ruko, mini market
                         </p>
-                        <button class="btn-detail" data-page="whatsapp-page" style="margin-top: 30px; background: #25D366;">
+                        <button class="btn-detail" data-page="whatsapp-page" style="margin-top: 20px; background: #25D366;">
                             <i class="fab fa-whatsapp"></i> Pesan Sekarang
                         </button>
                     </div>
@@ -878,15 +1448,15 @@
                             <i class="fas fa-camera-retro cctv-big" style="color: #ffd166;"></i>
                             <i class="fas fa-robot cctv-big-secondary"></i>
                         </div>
-                        <div style="margin-top: 30px;">
-                            <span style="background: #ffd166; color: #073b4c; padding: 12px 25px; border-radius: 40px;">
+                        <div style="margin-top: 20px;">
+                            <span style="background: #ffd166; color: #073b4c; padding: 8px 15px; border-radius: 30px; font-size: 12px;">
                                 <i class="fas fa-crown"></i> Premium 16 Camera
                             </span>
                         </div>
-                        <p style="margin-top: 30px; font-size: 20px; font-weight: 700; color: #073b4c;">
+                        <p style="margin-top: 20px; font-size: 16px; font-weight: 700; color: #073b4c;">
                             🏭 Solusi untuk pabrik, gudang, hotel
                         </p>
-                        <button class="btn-detail" data-page="whatsapp-page" style="margin-top: 30px; background: #25D366;">
+                        <button class="btn-detail" data-page="whatsapp-page" style="margin-top: 20px; background: #25D366;">
                             <i class="fab fa-whatsapp"></i> Pesan Sekarang
                         </button>
                     </div>
@@ -898,11 +1468,10 @@
         <section id="packages" class="page packages-section">
             <div class="section-title">
                 <h2><i class="fas fa-boxes"></i> Semua Paket CCTV</h2>
-                <p style="font-size: 20px;">Pilih sesuai kebutuhan dan budget Anda</p>
+                <p>Pilih sesuai kebutuhan dan budget Anda</p>
             </div>
-            <div class="package-grid" style="padding: 0 40px;">
-                <!-- PAKET 4,8,16 di-copy agar konsisten, bisa juga panggil dari yang atas, 
-                tapi kita buat ulang untuk page packages -->
+            <div class="package-grid" style="padding: 0;">
+                <!-- PAKET 4,8,16 -->
                 <div class="package-card">
                     <div class="package-header">
                         <i class="fas fa-video"></i>
@@ -957,30 +1526,28 @@
                 <div class="wa-content">
                     <i class="fab fa-whatsapp wa-icon"></i>
                     <h2>Hubungi Reynand Teknik</h2>
-                    <p style="font-size: 24px; max-width: 700px; margin: 0 auto;">
-                        Konsultasi gratis! Tim kami siap membantu Anda memilih sistem CCTV yang tepat.
-                    </p>
+                    <p>Konsultasi gratis! Tim kami siap membantu Anda memilih sistem CCTV yang tepat.</p>
                     <a href="https://wa.me/6289507906660?text=Halo%20Reynand%20Teknik!%20Saya%20ingin%20pasang%20CCTV.%20Mohon%20informasinya." 
                        class="wa-btn" target="_blank">
-                        <i class="fab fa-whatsapp" style="font-size: 50px;"></i> 
+                        <i class="fab fa-whatsapp"></i> 
                         +62 895-0790-6660
                     </a>
-                    <p style="margin-top: 40px; font-size: 20px;">
+                    <p style="margin-top: 20px; font-size: 14px;">
                         ⚡ Respon cepat, survey gratis, garansi service
                     </p>
                 </div>
             </div>
             
             <!-- Alamat & Kontak -->
-            <div style="background: white; padding: 60px 40px; text-align: center;">
-                <h3 style="font-size: 32px; color: #073b4c; margin-bottom: 30px;">
+            <div style="background: white; padding: 40px 20px; text-align: center;">
+                <h3 style="font-size: 22px; color: #073b4c; margin-bottom: 20px;">
                     <i class="fas fa-map-marker-alt" style="color: #ffd166;"></i> 
                     Kunjungi Kantor Kami
                 </h3>
-                <p style="font-size: 20px; color: #64748b; margin-bottom: 20px;">
+                <p style="font-size: 16px; color: #64748b; margin-bottom: 20px;">
                     Jl. Singaparna No 21 , Tasikmalaya.
                 </p>
-                <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px;">
+                <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
                     <div><i class="fas fa-phone-alt" style="color: #118ab2;"></i> 0895-0790-6660</div>
                     <div><i class="fas fa-envelope" style="color: #06d6a0;"></i> support@ahlipasangcctv.my.id</div>
                     <div><i class="fas fa-clock" style="color: #ffd166;"></i> Buka: Senin-Minggu 08.00-20.00</div>
@@ -1016,7 +1583,7 @@
                     <p><i class="fas fa-map-marker"></i> Tasikmalaya, Indonesia</p>
                 </div>
             </div>
-            <div style="text-align: center; padding-top: 30px; border-top: 1px solid #334756; color: #94a3b8;">
+            <div style="text-align: center; padding-top: 20px; border-top: 1px solid #334756; color: #94a3b8; font-size: 14px;">
                 © 2023 Rizki Gans
             </div>
         </footer>
@@ -1065,7 +1632,9 @@
         setInterval(() => {
             const icons = document.querySelectorAll('.camera-icon, .cctv-big, .cctv-big-secondary, .logo-icon');
             icons.forEach(icon => {
-                icon.style.transform = `rotate(${Math.sin(Date.now() / 500) * 10}deg)`;
+                if (icon) {
+                    icon.style.transform = `rotate(${Math.sin(Date.now() / 500) * 5}deg)`;
+                }
             });
         }, 100);
     </script>
