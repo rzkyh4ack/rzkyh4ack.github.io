@@ -127,7 +127,8 @@
                 "availability": "https://schema.org/InStock",
                 "url": "https://ahlipasangcctv.my.id",
                 "priceValidUntil": "2025-12-31"
-            }
+            },
+            "image": "https://images.unsplash.com/photo-1546942113-a6f41b10c6cf?w=600&q=80"
         },
         {
             "@context": "https://schema.org",
@@ -145,7 +146,8 @@
                 "availability": "https://schema.org/InStock",
                 "url": "https://ahlipasangcctv.my.id",
                 "priceValidUntil": "2025-12-31"
-            }
+            },
+            "image": "https://images.unsplash.com/photo-1558005530-a7958896ec60?w=600&q=80"
         },
         {
             "@context": "https://schema.org",
@@ -163,7 +165,8 @@
                 "availability": "https://schema.org/InStock",
                 "url": "https://ahlipasangcctv.my.id",
                 "priceValidUntil": "2025-12-31"
-            }
+            },
+            "image": "https://images.unsplash.com/photo-1557328806-b5d4f20b0e83?w=600&q=80"
         }
     ]
     </script>
@@ -766,6 +769,23 @@
             color: var(--gray);
         }
 
+        /* Gambar CCTV di modal */
+        .modal-image {
+            width: 100%;
+            height: 250px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .modal-specs {
             margin: 30px 0;
         }
@@ -1175,14 +1195,19 @@
                 font-size: 16px;
                 padding: 15px 25px;
             }
+            
+            .modal-image {
+                height: 180px;
+            }
         }
 
         /* Optimasi untuk CLS */
         img, svg, video, canvas, audio, iframe, embed, object {
             display: block;
+            vertical-align: middle;
         }
-        /* Optimasi font rendering */
 
+        /* Optimasi font rendering */
         body {
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
@@ -1487,7 +1512,7 @@
                         <i class="fas fa-phone-alt"></i>
                         <div>
                             <strong>Telepon</strong><br>
-                            0811-8807-0068
+                            0895-0790-6660
                         </div>
                     </div>
                     <div class="contact-detail">
@@ -1555,9 +1580,9 @@
             <div class="footer-links">
                 <h4>Kontak Cepat</h4>
                 <a href="https://wa.me/6289507906660" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> 0895-0790-6660</a>
-                <a href="tel:081188070068"><i class="fas fa-phone"></i> 0811-8807-0068</a>
+                <a href="tel:089507906660"><i class="fas fa-phone"></i> 0895-0790-6660</a>
                 <a href="mailto:support@ahlipasangcctv.my.id"><i class="fas fa-envelope"></i> Email Kami</a>
-                <a href="https://maps.app.goo.gl/vvAN4WjpiUzG7UVv7" target="_blank" rel="noopener"><i class="fas fa-map"></i> Lihat Peta</a>
+                <a href="#" target="_blank" rel="noopener"><i class="fas fa-map"></i> Lihat Peta</a>
             </div>
         </div>
 
@@ -1566,13 +1591,18 @@
         </div>
     </footer>
 
-    <!-- MODAL PAKET 4CH -->
+    <!-- MODAL PAKET 4CH (dengan gambar CCTV) -->
     <div id="modal4ch" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('4ch')">&times;</span>
             <div class="modal-header">
                 <h2>Paket CCTV 4 Channel</h2>
                 <div class="modal-price">Rp 3.500.000 <small>/paket</small></div>
+            </div>
+            
+            <!-- Gambar CCTV 4 Channel (bebas hak cipta) -->
+            <div class="modal-image">
+                <img src="https://images.unsplash.com/photo-1546942113-a6f41b10c6cf?w=600&q=80" alt="Kamera CCTV 4 Channel" loading="lazy">
             </div>
             
             <div class="modal-specs">
@@ -1605,7 +1635,7 @@
         </div>
     </div>
 
-    <!-- MODAL PAKET 8CH -->
+    <!-- MODAL PAKET 8CH (dengan gambar CCTV) -->
     <div id="modal8ch" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('8ch')">&times;</span>
@@ -1613,6 +1643,11 @@
                 <span style="background:#fbbf24;color:#0f172a;padding:6px 16px;border-radius:40px;font-size:14px;font-weight:700;display:inline-block;margin-bottom:15px;">⭐ PALING LARIS</span>
                 <h2>Paket CCTV 8 Channel</h2>
                 <div class="modal-price">Rp 6.500.000 <small>/paket</small></div>
+            </div>
+            
+            <!-- Gambar CCTV 8 Channel (bebas hak cipta) -->
+            <div class="modal-image">
+                <img src="https://images.unsplash.com/photo-1558005530-a7958896ec60?w=600&q=80" alt="Kamera CCTV 8 Channel" loading="lazy">
             </div>
             
             <div class="modal-specs">
@@ -1647,13 +1682,18 @@
         </div>
     </div>
 
-    <!-- MODAL PAKET 16CH -->
+    <!-- MODAL PAKET 16CH (dengan gambar CCTV) -->
     <div id="modal16ch" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('16ch')">&times;</span>
             <div class="modal-header">
                 <h2>Paket CCTV 16 Channel</h2>
                 <div class="modal-price">Rp 12.000.000 <small>/paket</small></div>
+            </div>
+            
+            <!-- Gambar CCTV 16 Channel (bebas hak cipta) -->
+            <div class="modal-image">
+                <img src="https://images.unsplash.com/photo-1557328806-b5d4f20b0e83?w=600&q=80" alt="Kamera CCTV 16 Channel" loading="lazy">
             </div>
             
             <div class="modal-specs">
@@ -1746,6 +1786,15 @@
                 footerYear.innerHTML = footerYear.innerHTML.replace('2025', new Date().getFullYear());
             }
         });
+    </script>
+
+    <!-- Google tag (gtag.js) dengan defer -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17957825148"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-17957825148');
     </script>
 </body>
 </html>
