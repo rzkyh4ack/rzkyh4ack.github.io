@@ -57,7 +57,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
     </noscript>
     
-    <!-- Schema Markup Lengkap (Local SEO Tasikmalaya) - DITAMBAHKAN -->
+    <!-- Schema Markup Lengkap (Local SEO Tasikmalaya) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -125,7 +125,7 @@
                 "price": "3500000",
                 "priceCurrency": "IDR",
                 "availability": "https://schema.org/InStock",
-                "url": "https://ahlipasangcctv.my.id/#paket-4ch",
+                "url": "https://ahlipasangcctv.my.id",
                 "priceValidUntil": "2025-12-31"
             }
         },
@@ -143,7 +143,7 @@
                 "price": "6500000",
                 "priceCurrency": "IDR",
                 "availability": "https://schema.org/InStock",
-                "url": "https://ahlipasangcctv.my.id/#paket-8ch",
+                "url": "https://ahlipasangcctv.my.id",
                 "priceValidUntil": "2025-12-31"
             }
         },
@@ -161,7 +161,7 @@
                 "price": "12000000",
                 "priceCurrency": "IDR",
                 "availability": "https://schema.org/InStock",
-                "url": "https://ahlipasangcctv.my.id/#paket-16ch",
+                "url": "https://ahlipasangcctv.my.id",
                 "priceValidUntil": "2025-12-31"
             }
         }
@@ -679,13 +679,165 @@
             border-radius: 16px;
             text-decoration: none;
             font-weight: 600;
-            display: block;
-            text-align: center;
-            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-package:hover {
             background: var(--primary-dark);
+            transform: scale(1.02);
+        }
+
+        /* ===== MODAL POPUP UNTUK DETAIL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 30px auto;
+            padding: 40px;
+            border-radius: 32px;
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 25px;
+            top: 20px;
+            font-size: 35px;
+            font-weight: bold;
+            color: var(--gray);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+        }
+
+        .modal-header {
+            margin-bottom: 30px;
+            padding-right: 40px;
+        }
+
+        .modal-header h2 {
+            font-size: 32px;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .modal-price {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .modal-price small {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--gray);
+        }
+
+        .modal-specs {
+            margin: 30px 0;
+        }
+
+        .modal-specs h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .modal-specs ul {
+            list-style: none;
+        }
+
+        .modal-specs li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .modal-specs i {
+            color: var(--primary);
+            font-size: 20px;
+            width: 25px;
+        }
+
+        .modal-suitable {
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 16px;
+        }
+
+        .modal-suitable h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .modal-suitable ul {
+            list-style: none;
+        }
+
+        .modal-suitable li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-modal-wa {
+            background: #25D366;
+            color: white;
+            padding: 18px 36px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-modal-wa:hover {
+            transform: scale(1.02);
         }
 
         /* ===== MENGAPA KAMI ===== */
@@ -976,6 +1128,11 @@
                 margin-left: auto;
                 margin-right: auto;
             }
+            
+            .modal-content {
+                margin: 20px auto;
+                padding: 30px 20px;
+            }
         }
 
         @media (max-width: 640px) {
@@ -1005,15 +1162,27 @@
                 padding: 15px 25px;
                 font-size: 18px;
             }
+            
+            .modal-header h2 {
+                font-size: 24px;
+            }
+            
+            .modal-price {
+                font-size: 28px;
+            }
+            
+            .btn-modal-wa {
+                font-size: 16px;
+                padding: 15px 25px;
+            }
         }
 
         /* Optimasi untuk CLS */
         img, svg, video, canvas, audio, iframe, embed, object {
             display: block;
-            vertical-align: middle;
         }
-
         /* Optimasi font rendering */
+
         body {
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
@@ -1149,7 +1318,7 @@
 
             <div class="package-grid">
                 <!-- Paket 4 Channel -->
-                <div class="package-card" id="paket-4ch">
+                <div class="package-card">
                     <div class="package-header">
                         <i class="fas fa-video"></i>
                         <h3>CCTV 4 Channel</h3>
@@ -1164,14 +1333,14 @@
                             <li><i class="fas fa-check-circle"></i> Pasang + Setting</li>
                             <li><i class="fas fa-check-circle"></i> Garansi 1 Tahun</li>
                         </ul>
-                        <a href="https://wa.me/6289507906660?text=Halo%20Reynand%20Teknik!%20Saya%20tertarik%20dengan%20Paket%20CCTV%204%20Channel%20(Rp3,5jt)%20di%20Tasikmalaya.%20Mohon%20info%20lebih%20lanjut." class="btn-package" target="_blank" rel="noopener">
-                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
-                        </a>
+                        <button class="btn-package" onclick="openModal('4ch')">
+                            <i class="fas fa-info-circle"></i> Lihat Detail Paket
+                        </button>
                     </div>
                 </div>
 
                 <!-- Paket 8 Channel (POPULAR) -->
-                <div class="package-card" id="paket-8ch">
+                <div class="package-card">
                     <div class="package-header popular">
                         <span class="popular-tag">Paling Laris</span>
                         <i class="fas fa-camera-retro"></i>
@@ -1187,14 +1356,14 @@
                             <li><i class="fas fa-check-circle"></i> Remote Monitoring</li>
                             <li><i class="fas fa-check-circle"></i> Garansi 2 Tahun</li>
                         </ul>
-                        <a href="https://wa.me/6289507906660?text=Halo%20Reynand%20Teknik!%20Saya%20tertarik%20dengan%20Paket%20CCTV%208%20Channel%20(Rp6,5jt)%20di%20Tasikmalaya.%20Mohon%20info%20lebih%20lanjut." class="btn-package" target="_blank" rel="noopener">
-                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
-                        </a>
+                        <button class="btn-package" onclick="openModal('8ch')">
+                            <i class="fas fa-info-circle"></i> Lihat Detail Paket
+                        </button>
                     </div>
                 </div>
 
                 <!-- Paket 16 Channel -->
-                <div class="package-card" id="paket-16ch">
+                <div class="package-card">
                     <div class="package-header">
                         <i class="fas fa-eye"></i>
                         <h3>CCTV 16 Channel</h3>
@@ -1209,9 +1378,9 @@
                             <li><i class="fas fa-check-circle"></i> AI Detection</li>
                             <li><i class="fas fa-check-circle"></i> Garansi 3 Tahun</li>
                         </ul>
-                        <a href="https://wa.me/6289507906660?text=Halo%20Reynand%20Teknik!%20Saya%20tertarik%20dengan%20Paket%20CCTV%2016%20Channel%20(Rp12jt)%20di%20Tasikmalaya.%20Mohon%20info%20lebih%20lanjut." class="btn-package" target="_blank" rel="noopener">
-                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
-                        </a>
+                        <button class="btn-package" onclick="openModal('16ch')">
+                            <i class="fas fa-info-circle"></i> Lihat Detail Paket
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1318,7 +1487,7 @@
                         <i class="fas fa-phone-alt"></i>
                         <div>
                             <strong>Telepon</strong><br>
-                            0895-0790-6660
+                            0811-8807-0068
                         </div>
                     </div>
                     <div class="contact-detail">
@@ -1369,9 +1538,9 @@
 
             <div class="footer-links">
                 <h4>Paket CCTV</h4>
-                <a href="#paket">CCTV 4 Channel</a>
-                <a href="#paket">CCTV 8 Channel</a>
-                <a href="#paket">CCTV 16 Channel</a>
+                <a href="#" onclick="openModal('4ch'); return false;">CCTV 4 Channel</a>
+                <a href="#" onclick="openModal('8ch'); return false;">CCTV 8 Channel</a>
+                <a href="#" onclick="openModal('16ch'); return false;">CCTV 16 Channel</a>
                 <a href="#paket">Paket Custom</a>
             </div>
 
@@ -1386,9 +1555,9 @@
             <div class="footer-links">
                 <h4>Kontak Cepat</h4>
                 <a href="https://wa.me/6289507906660" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> 0895-0790-6660</a>
-                <a href="tel:089507906660"><i class="fas fa-phone"></i> 0895-0790-6660</a>
+                <a href="tel:081188070068"><i class="fas fa-phone"></i> 0811-8807-0068</a>
                 <a href="mailto:support@ahlipasangcctv.my.id"><i class="fas fa-envelope"></i> Email Kami</a>
-                <a href="#" target="_blank" rel="noopener"><i class="fas fa-map"></i> Lihat Peta</a>
+                <a href="https://maps.app.goo.gl/vvAN4WjpiUzG7UVv7" target="_blank" rel="noopener"><i class="fas fa-map"></i> Lihat Peta</a>
             </div>
         </div>
 
@@ -1397,11 +1566,153 @@
         </div>
     </footer>
 
+    <!-- MODAL PAKET 4CH -->
+    <div id="modal4ch" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('4ch')">&times;</span>
+            <div class="modal-header">
+                <h2>Paket CCTV 4 Channel</h2>
+                <div class="modal-price">Rp 3.500.000 <small>/paket</small></div>
+            </div>
+            
+            <div class="modal-specs">
+                <h3>Spesifikasi Lengkap:</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> 4 Kamera HD 1080p (Resolusi 1920x1080)</li>
+                    <li><i class="fas fa-check-circle"></i> DVR 4CH H.265+ (Hemat storage hingga 40%)</li>
+                    <li><i class="fas fa-check-circle"></i> Harddisk 500GB (Rekaman hingga 7 hari)</li>
+                    <li><i class="fas fa-check-circle"></i> Kabel 20 meter per channel (Total 80 meter)</li>
+                    <li><i class="fas fa-check-circle"></i> Power Supply + Adaptor</li>
+                    <li><i class="fas fa-check-circle"></i> Konektor BNC + DC</li>
+                    <li><i class="fas fa-check-circle"></i> Jasa Instalasi oleh Teknisi Profesional</li>
+                    <li><i class="fas fa-check-circle"></i> Setting Aplikasi Remote Monitoring</li>
+                    <li><i class="fas fa-check-circle"></i> Garansi 1 Tahun (Produk + Jasa)</li>
+                </ul>
+            </div>
+            
+            <div class="modal-suitable">
+                <h3><i class="fas fa-home"></i> Cocok untuk:</h3>
+                <ul>
+                    <li>🏠 Rumah tinggal (depan, belakang, samping)</li>
+                    <li>🏪 Toko kecil / warung</li>
+                    <li>🏢 Kantor kecil</li>
+                </ul>
+            </div>
+            
+            <a href="https://wa.me/6289507906660?text=Saya%20tertarik%20Paket%20CCTV%204%20Channel%20(Rp3,5jt)%20di%20Tasikmalaya.%20Mohon%20info%20lebih%20lanjut." class="btn-modal-wa" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i> Pesan Sekarang via WA
+            </a>
+        </div>
+    </div>
+
+    <!-- MODAL PAKET 8CH -->
+    <div id="modal8ch" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('8ch')">&times;</span>
+            <div class="modal-header">
+                <span style="background:#fbbf24;color:#0f172a;padding:6px 16px;border-radius:40px;font-size:14px;font-weight:700;display:inline-block;margin-bottom:15px;">⭐ PALING LARIS</span>
+                <h2>Paket CCTV 8 Channel</h2>
+                <div class="modal-price">Rp 6.500.000 <small>/paket</small></div>
+            </div>
+            
+            <div class="modal-specs">
+                <h3>Spesifikasi Lengkap:</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> 8 Kamera Full HD 2MP (Resolusi 1920x1080)</li>
+                    <li><i class="fas fa-check-circle"></i> DVR 8CH H.265+ (Teknologi kompresi terbaru)</li>
+                    <li><i class="fas fa-check-circle"></i> Harddisk 1TB (Rekaman hingga 14 hari)</li>
+                    <li><i class="fas fa-check-circle"></i> Kabel 30 meter per channel (Total 240 meter)</li>
+                    <li><i class="fas fa-check-circle"></i> Power Supply + Adaptor Heavy Duty</li>
+                    <li><i class="fas fa-check-circle"></i> Konektor BNC + DC (Gold Plated)</li>
+                    <li><i class="fas fa-check-circle"></i> Jasa Instalasi oleh Teknisi Profesional</li>
+                    <li><i class="fas fa-check-circle"></i> Setting Aplikasi Remote Monitoring (Android/iOS)</li>
+                    <li><i class="fas fa-check-circle"></i> Akses dari mana saja via internet</li>
+                    <li><i class="fas fa-check-circle"></i> Garansi 2 Tahun (Produk + Jasa)</li>
+                </ul>
+            </div>
+            
+            <div class="modal-suitable">
+                <h3><i class="fas fa-building"></i> Cocok untuk:</h3>
+                <ul>
+                    <li>🏠 Rumah besar (2 lantai)</li>
+                    <li>🏪 Ruko / Toko sedang</li>
+                    <li>🏢 Kantor skala menengah</li>
+                    <li>🏭 Gudang kecil</li>
+                </ul>
+            </div>
+            
+            <a href="https://wa.me/6289507906660?text=Saya%20tertarik%20Paket%20CCTV%208%20Channel%20(Rp6,5jt)%20di%20Tasikmalaya.%20Mohon%20info%20lebih%20lanjut." class="btn-modal-wa" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i> Pesan Sekarang via WA
+            </a>
+        </div>
+    </div>
+
+    <!-- MODAL PAKET 16CH -->
+    <div id="modal16ch" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('16ch')">&times;</span>
+            <div class="modal-header">
+                <h2>Paket CCTV 16 Channel</h2>
+                <div class="modal-price">Rp 12.000.000 <small>/paket</small></div>
+            </div>
+            
+            <div class="modal-specs">
+                <h3>Spesifikasi Lengkap:</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> 16 Kamera 4MP Ultra HD (Resolusi 2560x1440)</li>
+                    <li><i class="fas fa-check-circle"></i> DVR 16CH H.265 Pro (AI Detection)</li>
+                    <li><i class="fas fa-check-circle"></i> Harddisk 2TB (Rekaman hingga 21 hari)</li>
+                    <li><i class="fas fa-check-circle"></i> Kabel 50 meter per channel (Total 800 meter)</li>
+                    <li><i class="fas fa-check-circle"></i> Power Supply + Adaptor Heavy Duty Pro</li>
+                    <li><i class="fas fa-check-circle"></i> Konektor BNC + DC Premium</li>
+                    <li><i class="fas fa-check-circle"></i> Jasa Instalasi oleh Teknisi Senior</li>
+                    <li><i class="fas fa-check-circle"></i> Setting Aplikasi Remote Monitoring 4K</li>
+                    <li><i class="fas fa-check-circle"></i> Fitur AI Detection (Mendeteksi orang/kendaraan)</li>
+                    <li><i class="fas fa-check-circle"></i> Notifikasi real-time ke smartphone</li>
+                    <li><i class="fas fa-check-circle"></i> Garansi 3 Tahun (Produk + Jasa)</li>
+                </ul>
+            </div>
+            
+            <div class="modal-suitable">
+                <h3><i class="fas fa-industry"></i> Cocok untuk:</h3>
+                <ul>
+                    <li>🏢 Kantor besar / Corporate</li>
+                    <li>🏭 Pabrik / Gudang besar</li>
+                    <li>🏨 Hotel / Penginapan</li>
+                    <li>🏪 Ruko multiple / Mini market</li>
+                </ul>
+            </div>
+            
+            <a href="https://wa.me/6289507906660?text=Saya%20tertarik%20Paket%20CCTV%2016%20Channel%20(Rp12jt)%20di%20Tasikmalaya.%20Mohon%20info%20lebih%20lanjut." class="btn-modal-wa" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i> Pesan Sekarang via WA
+            </a>
+        </div>
+    </div>
+
     <!-- SCRIPT -->
     <script>
-        // Defer non-critical JavaScript
+        // Fungsi untuk membuka modal
+        function openModal(paket) {
+            document.getElementById('modal' + paket).style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Mencegah scroll di background
+        }
+
+        // Fungsi untuk menutup modal
+        function closeModal(paket) {
+            document.getElementById('modal' + paket).style.display = 'none';
+            document.body.style.overflow = 'auto'; // Mengembalikan scroll
+        }
+
+        // Tutup modal jika klik di luar konten modal
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Mobile Menu Toggle
         document.addEventListener('DOMContentLoaded', function() {
-            // Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileNav = document.getElementById('mobileNav');
 
@@ -1435,6 +1746,15 @@
                 footerYear.innerHTML = footerYear.innerHTML.replace('2025', new Date().getFullYear());
             }
         });
+    </script>
+
+    <!-- Google tag (gtag.js) dengan defer -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17957825148"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-17957825148');
     </script>
 </body>
 </html>
