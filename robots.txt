@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://ahlipasangcctv.my.id/sitemap.xml
+Sitemap: https://ahlipasangcctv.my.id/sitemap_index.xml
